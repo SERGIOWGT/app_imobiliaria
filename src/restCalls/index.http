@@ -1,0 +1,74 @@
+@host=https://localhost:44328/api
+#@host=https://lastec-imob.azurewebsites.net/api
+
+get {{host}}/inquilinos HTTP/1.1
+content-type: application/json
+
+###
+
+get {{host}}/Imoveis HTTP/1.1
+content-type: application/json
+###
+
+get {{host}}/Imoveis/9 HTTP/1.1
+content-type: application/json
+###
+
+get {{host}}/contratosAluguel/ListaCompleta?imovelId=5 HTTP/1.1
+content-type: application/json
+###
+
+put  https://localhost:44328/api/ContratosAluguel/16/reajusta HTTP/1.1
+content-type: application/json
+
+{"Data": "2022-02-01", "valorAluguel": 2200}
+###
+post  https://localhost:44328/api/ContratosAluguel HTTP/1.1
+content-type: application/json
+
+{
+  "DataInicio":"2022-05-19",
+  "ValorAluguel": 300,
+  "TaxaAdministracao": 7,
+  "ImovelId": 6,
+  "InquilinoId": 28 
+}
+
+###
+put  {{host}}/ContratosAluguel/32/assina HTTP/1.1
+content-type: application/json
+
+###
+put  https://lastec-imob.azurewebsites.net/api/ContratosAluguel/8/encerra HTTP/1.1
+content-type: application/json
+
+{"Data": "2022-06-01"}
+
+###
+put  {{host}}/ContratosAluguel/6/posterga HTTP/1.1
+content-type: application/json
+
+###
+get  https://localhost:44328/api/ContratosAluguel/ListaMovimentacaoMensal?ano=2022&mes=03 HTTP/1.1
+content-type: application/json
+
+###
+post {{host}}/ContratosAluguel HTTP/1.1
+content-type: application/json
+
+{
+  "DataInicio":"2022-09-01",
+  "ValorAluguel": 600,
+  "TaxaAdministracao": 7,
+  "ImovelId": 5,
+  "InquilinoId": 31
+}
+
+###
+put  {{host}}/ContratosAluguel/6/Reajusta HTTP/1.1
+content-type: application/json
+
+{
+  "Data":"2022-07-01",
+  "ValorAluguel": 500
+}
